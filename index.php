@@ -13,5 +13,16 @@
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Register">
     </form>
+
+    <h1>Send Email</h1>
+    <form action="send_email.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+        <input type="submit" value="Send Email">
+    </form>
 </body>
 </html>

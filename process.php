@@ -1,4 +1,9 @@
 <?php
+// Include the necessary libraries
+require 'guzzle/autoload.php';
+use GuzzleHttp\Client;
+use Symfony\Component\Yaml\Yaml;
+
 // Database connection settings
 $servername = "localhost";
 $username = "root";
@@ -28,6 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h1>User Registered</h1>";
         echo "<p>Username: $username</p>";
         echo "<p>Hashed Password: $hashed_password</p>";
+
+        // Use Guzzle to make an HTTP request
+        $client = new Client();
+        $response = $client->request('GET', 'https://api.example.com');
+
+        echo "<p>HTTP Response: " . $response->getStatusCode() . "</p>";
+
+        // Use Symfony YAML component
+        $yaml = Yaml::parse("key: value");
+        echo "<p>YAML Parsing: " . $yaml['key'] . "</p>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
